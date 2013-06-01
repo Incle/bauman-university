@@ -1,15 +1,15 @@
 /**
-  @file	Stack.cpp
-  @brief	Example of stack
+  	@file			Stack.cpp
+  	@brief			Example of stack
 */
 #include <iostream>
 #include <ctime>
 using namespace std;
 /**
 	@struct		      	stack
-	@brief			      Structure for elements of stack
-  @param val	  	  Value of element
-	@param *next	    Link on next element of stack
+	@brief			Structure for elements of stack
+ 	@param val	  	Value of element
+	@param *next	    	Link on next element of stack
 	@param *previous	Link on previousious element of stack
 */
 struct stack
@@ -18,10 +18,10 @@ struct stack
 	stack *next, *previous;
 };
 /**
-	@fn						    void add(int value, stack **element)
-  @brief					  Add new element to stack
-	@param value	    Value of element
-  @param **element  Link on link first element of stack
+	@fn			void add(int value, stack **element)
+  	@brief			Add new element to stack
+	@param value	    	Value of element
+  	@param **element  	Link on link first element of stack
 	@return			
 */
 void add(int value, stack **element)
@@ -33,9 +33,9 @@ void add(int value, stack **element)
 	cout<<"\nAdd "<<value;
 }
 /**
-	@fn					      void print_stack(stack *element)
-  @brief				    Print
-  @param *element	  Link on first element of stack
+	@fn			void print_stack(stack *element)
+  	@brief			Print
+ 	@param *element		Link on first element of stack
 	@return			
 */
 void print(stack *element)
@@ -50,9 +50,9 @@ void print(stack *element)
 	}
 }
 /**
-	@fn					      void delete_stack(stack *element)
-  @brief				    Delete stack
-  @param *element   Link on first element of stack
+	@fn			void delete_stack(stack *element)
+ 	@brief			Delete stack
+  	@param *element   	Link on first element of stack
 	@return			
 */
 void delete_stack(stack *element)
@@ -74,14 +74,14 @@ void main()
 	cout<<"Input number of elements: ";		/// size of stack
 	cin>>size;
 	++size;
-	while (--size)							          /// create elements
+	while (--size)					/// create elements
 	{
 		exVal = rand()%1000;
-		add(exVal, &element);			        	/// add element
+		add(exVal, &element);			/// add element
 	}
   cout<<"\nStack was created\n";  
-	print(element);						          	/// print
-	delete_stack(element);			      		/// delete
+	print(element);					/// print
+	delete_stack(element);			      	/// delete
 	getchar();
 }
 
