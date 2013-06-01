@@ -1,14 +1,14 @@
 /** 
 	@file	Queue.cpp
-    @brief	Example of queue.
+    	@brief	Example of queue.
 */
 #include <iostream>
 #include <ctime>
 using namespace std;
 /** 
-	@struct	queue
-	@brief	Structure for queue
-    @param value	Value of element
+	@struct		queue
+	@brief		Structure for queue
+  	@param value	Value of element
 	@param *next	Link of next element
 */
 struct queue
@@ -18,7 +18,7 @@ struct queue
 } *first, *last;								/// first and last elements
 /** 
 	@fn		void add(int value)
-    @brief	Add element to queue
+   	@brief		Add element to queue
 	@param value	Value of the element
 	@return			
 */
@@ -27,21 +27,21 @@ void add (int value)
 	queue *ex = new queue;
 	ex->value = value;
 	ex->next = NULL;
-		if(first)
-		{
-			last->next = ex;
-			last = ex;
-		}
-		else
-		{
-			first = ex;
-			last = first;
-		}
+	if(first)
+	{
+		last->next = ex;
+		last = ex;
+	}
+	else
+	{
+		first = ex;
+		last = first;
+	}
 	cout<<"\n Add "<<value;
 }
 /**
 	@fn		void print()
-    @brief	Print queue
+    	@brief		Print queue
 	@return	
 */
 void print()
@@ -49,15 +49,15 @@ void print()
     queue *ex;
 	ex = first;
 	cout<<"\nQueue\n";
-		while (ex)
-		{
-			cout<<" "<<ex->value;
-			ex = ex->next;
-		}
+	while (ex)
+	{
+		cout<<" "<<ex->value;
+		ex = ex->next;
+	}
 }
 /**
 	@fn		void deleteElements()
-    @brief	Delete elements of queue
+    	@brief		Delete elements of queue
 	@return	
 */
 void deleteElements()
@@ -83,7 +83,7 @@ void main()
 		ex = rand()%10000;
 		add(ex);
 	}
-	print();							/// print
+	print();						/// print
 	deleteElements();					/// delete
 	getchar();
 }
