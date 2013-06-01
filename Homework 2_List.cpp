@@ -1,15 +1,15 @@
 /**
   @file	List.cpp
-    @brief	Example of list
+   @brief	Example of list
 */
 #include <iostream>
 #include <ctime>
 using namespace std;
 /**
 	@struct	list
-	@brief	Struct for list
-    @param value	Value of element
-	@param *next	Pointer to next element of list
+	@brief			Struct for list
+    	@param value		Value of element
+	@param *next		Pointer to next element of list
 */
 struct list
 {
@@ -17,9 +17,9 @@ struct list
 	list *next;
 };
 /** 
-	@fn		void print(list *Element)
-    @brief	Print list
-    @param *Element	Link on first element of list
+	@fn			void print(list *Element)
+    	@brief			Print list
+    	@param *Element		Link on first element of list
 	@return		
 */
 void print(list *Element)
@@ -32,10 +32,10 @@ void print(list *Element)
 	}
 }
 /** 
-	@fn		void deleteList(list *linkOfElement, list *Element)
-    @brief	Delete list
-    @param *linkOfElement		Link on link of first element of list
-    @param *Element		Link on first element of list
+	@fn			void deleteList(list *linkOfElement, list *Element)
+    	@brief			Delete list
+    	@param *linkOfElement	Link on link of first element of list
+   	 @param *Element	Link on first element of list
 	@return			
 */
 void deleteList(list *linkOfElement, list *Element)
@@ -56,7 +56,7 @@ void main()
 	cout<<"Input number of elements ";
 	cin>>size;
 	++size;
-	while (--size)				/// create elements of list
+	while (--size)					/// create elements of list
 	{
 		Element = new list;
 		Element->value = rand()%1000;
