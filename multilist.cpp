@@ -6,7 +6,7 @@ using namespace std;
 #define NumberOfStudents 10
 #define NumberOfCourses 5
 /**
-  	@struct		COURSE
+	@struct		COURSE
 	@brief		Structure for queue
   	@param value	Value of element
 	@param *next	Link of next element
@@ -49,7 +49,7 @@ void CreateList(LIST *Current,int i)
 }	
 /**
 	@fn		CreateList(COURSE *Current,int i)
-   	@brief		Creat list of Currentses
+   	@brief		Creat list of Courses
 	@return		
 */
 void CreateList(COURSE *Current,int i)
@@ -59,7 +59,7 @@ void CreateList(COURSE *Current,int i)
 }
 /**
 	@fn		GetCount(COURSE *Current,int n)
-   	@brief		Get a Current Currentse
+   	@brief		Get a Current Course
 	@return		
 */
 COURSE* GetCount(COURSE *Current,int n)
