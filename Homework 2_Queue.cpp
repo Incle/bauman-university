@@ -1,6 +1,6 @@
 /** 
 	@file	Queue.cpp
-    	@brief	Example of queue.
+    	@brief	Example of queue
 */
 #include <iostream>
 #include <ctime>
