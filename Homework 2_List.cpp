@@ -1,6 +1,6 @@
 /**
-  @file	List.cpp
-   @brief	Example of list
+ 	 @file	List.cpp
+ 	 @brief	Example of list
 */
 #include <iostream>
 #include <ctime>
@@ -35,7 +35,7 @@ void print(list *Element)
 	@fn			void deleteList(list *linkOfElement, list *Element)
     	@brief			Delete list
     	@param *linkOfElement	Link on link of first element of list
-   	 @param *Element	Link on first element of list
+   	@param *Element	Link on first element of list
 	@return			
 */
 void deleteList(list *linkOfElement, list *Element)
