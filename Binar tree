@@ -1,0 +1,310 @@
+#include <iostream>
+#include <iostream>
+using namespace std;
+#define EXIT_WHILE 7  						/// const for exit from infinite loop
+/**
+	@struct	leaf
+	@brief	Struct for elements of tree
+    @param val		Value of leaf
+	@param *son_r	Link on right son
+	@param *son_l	Link on left son
+	@param *parent	Link on parent
+	
+	
+*/
+struct leaf
+{
+	int val;
+	leaf *son_r;
+	leaf *son_l;
+	leaf *parent;
+};
+/**
+	@fn		int get_val()
+    @brief	Give value of leaf
+	@return	int val Value of leaf
+*/
+int get_val()
+{
+	int val;
+		printf ("value of leaf ");
+		cin>>val;
+	return val;
+}
+/**
+	@fn		int get_mChoice()
+    @brief	Give value of command for main menu
+	@return	int Choice Value of command
+*/
+int get_mChoice()
+{
+	int Choice = 11;
+		while (Choice != 2 && Choice != 1 && Choice != 3)
+		{
+			cout<<"\n For createing tree\t\tinput - 1";
+			cout<<"\n For printing tree\t\tinput - 2";
+			cout<<"\n For destroying and exiting\tinput - 3";
+			cin>>Choice;
+			cout<<" ";
+		}
+	return Choice;
+}
+/**
+	@fn		int get_cChoice(leaf *nowRoot)
+    @brief	Give value of command for menu of creating tree
+			Using this function, the program understands what the user wants
+	@param	*nowRoot	A Link on the leaf of the tree to which the program works
+	@return	int Choice	Value of command
+*/
+int get_cChoice(leaf *nowRoot)
+{
+	int Choice = 11;
+		while (Choice != 3 && Choice!=2 && Choice != 1 && Choice != 0)
+		{
+			cout<<"\n For adding left leaf for\t("<<nowRoot->val<<")\tinput 1";
+			cout<<"\n For adding right leaf for\t("<<nowRoot->val<<")\tinput 2";
+			if(nowRoot->parent == NULL)
+			{
+				cout<<"\n Up to root\t\t(--)\t[No parent]";
+			}
+			else
+			{
+				cout<<"\n Up to root\t\t("<<nowRoot->parent->val<<")\tinput 3";
+			}
+			cout<<"\n Exit to  menu\t\tinput 0";
+			cin>>Choice;
+		}
+	return Choice;
+}
+/**
+	@fn		leaf* up_root(leaf *root)
+    @brief	Moves the user to a higher level
+	@param	*root	A Link on the leaf of the tree to which the program works
+	@return	leaf	root Adrees of this leaf in memory
+*/
+leaf* up_root(leaf *root)
+{
+	if (root->parent)
+	{
+		cout<<"now you at leaf \t("<<root->parent->val<<")\n";
+		return root->parent;
+	}
+	else
+	{
+		cout<<"now you at leaf ("<<root->val<<"), ("<<root->val<<") - ROOT of all tree!\n";
+		return root;
+	}
+}
+/*! @fn		leaf* cr_left_son(leaf *parent)
+    @brief	Create left son for leaf
+
+	@param	*parent	A Link on the leaf of the tree to which the program works
+					For this leaf function create left son
+	@return	tmpSon	Adrees of son in memory
+*/
+leaf* cr_left_son(leaf *parent)
+{
+	leaf *tmpSon;
+	tmpSon = new leaf;
+	if (parent->son_l)						/// if we already has son
+	{		
+		delete tmpSon;
+		cout<<"parent ("<<parent->val<<") has left son ("<<parent->son_l->val<<")";
+		cout<<"\nreturn Link on left son ("<<parent->son_l->val<<")\n";
+		return parent->son_l;
+	}
+	parent->son_l = tmpSon;
+	tmpSon->parent = parent;
+	tmpSon->val = get_val();
+	tmpSon->son_l = NULL;
+	tmpSon->son_r = NULL;
+	return tmpSon;
+}
+/**
+	@fn		leaf* cr_right_son(leaf *parent)
+    @brief	Create right son for leaf
+	@param	*parent	A Link on the leaf of the tree to which the program works 
+					For this leaf function create right son
+	@return	tmpSon	Adrees of son in memory
+*/
+leaf* cr_right_son(leaf *parent)
+{
+	leaf *tmpSon;
+	tmpSon = new leaf;
+	if (parent->son_r)						/// if we already has son
+	{
+		delete tmpSon;
+		cout<<"parent ("<<parent->val<<") has right son ("<<parent->son_r->val<<")";
+		cout<<"\nreturn Link on right son ("<<parent->son_r->val<<")\n";
+		return parent->son_r;
+	}
+	tmpSon->val = get_val();
+	tmpSon->parent = parent;
+	tmpSon->son_l = NULL;
+	tmpSon->son_r = NULL;
+	parent->son_r= tmpSon;
+	return tmpSon;
+}
+/**
+	@fn		void create_tree(leaf *root)
+    @brief	Create tree
+			With help of simple fuctions this function create binar tree
+	@param	*root	A Link on root of tree
+	@return	
+*/
+void create_tree(leaf *root)
+{
+	short Choice = NULL;
+	cout<<"\nLet\'s create binar tree";
+	cout<<"\nInput value of root ";
+	scanf ("%d", &(root->val));
+	while (1)
+	{
+		switch (get_cChoice(root))			/// get Choice
+		{
+			case 1:
+				root = cr_left_son(root);	/// create left son
+				break;
+			case 2:
+				root = cr_right_son(root);	/// create right son
+				break;
+			case 3:
+				root = up_root(root);		/// go up to parent
+				break;
+			case 0:
+				Choice = EXIT_WHILE;		/// exit from create part
+				break;
+			default:
+			;
+		}
+		if (Choice == EXIT_WHILE)
+		{
+				break;
+		}
+	}
+}
+/**
+	@fn		void inorder(leaf *root)
+    @brief	Print tree in simmetric order
+	@param	*root	A Link on root of tree
+	@return	
+*/
+void inorder(leaf *root)
+{
+	if(!root) 
+	{
+		return;
+	}
+	inorder(root->son_l);
+	if(root->val)
+	{ 
+		cout<<root->val;
+	}
+	inorder(root->son_r);
+}
+/**
+	@fn		void preorder(leaf *root)
+    @brief	Print tree in direct order.
+	@param	*root	A Link on root of tree.
+	@return	
+*/
+void preorder(leaf *root)
+{
+	if(!root) 
+	{
+		return;
+	}
+	if(root->val)
+	{ 
+		cout<<root->val;
+	}
+	preorder(root->son_l);
+	preorder(root->son_r);
+}
+/** 
+	@fn		void postorder(leaf *root)
+    @brief	Print tree in back order
+	@param	*root	A Link on root of tree
+	@return	
+*/
+void postorder(leaf *root)
+{
+	if(!root) 
+	{
+		return;
+	}
+	postorder(root->son_l);
+	postorder(root->son_r);
+	if(root->val) 
+	{
+		cout<<root->val;
+	}
+}
+/**
+	@fn		void print_tree(leaf* root)
+    @brief	Print tree in different order
+	@param	*root	Link on root of tree
+	@return
+*/
+void print_tree(leaf* root)
+{
+	cout<<"\nPrinted tree:";
+	cout<<"\nSimmetric order:\t";
+	inorder(root);
+	cout<<"\nDirect order:\t\t";
+	preorder(root);
+	cout<<"\nBack order:\t\t";
+	postorder(root);
+	cout<<"\n";
+}
+/**
+	@fn		void delete_tree(leaf *root)
+    @brief	Delete tree
+	@param	*root	A Link on root of tree
+	@return	
+*/
+void delete_tree(leaf *root)
+{
+	if(!root) 
+	{
+		return;
+	}
+	delete_tree(root->son_l);
+	delete_tree(root->son_r);
+	if(root->val) 
+	{
+		cout<<"\ndestroy ("<<root->val<<")";
+		delete root;
+	}
+}
+int main ()
+{
+	int Choice = 11;							/// Choice for menu
+	leaf *root;									/// root of tree
+	root = new leaf;
+	root->parent = NULL;						
+	root->son_l = NULL;						
+	root->son_r = NULL;							
+	root->val = NULL;							
+	while(1)
+	{
+		switch (get_mChoice())					/// get Choice
+		{
+		case 1: 
+			create_tree(root);					/// create tree
+			cout<<"\ntree was created";
+			break;
+		case 2:
+			print_tree(root);					/// print tree
+			break;
+		case 3:
+			delete_tree(root);					/// delete tree 
+			cout<<"\ntree was destroied\n"; 
+			Choice = EXIT_WHILE;					/// and exit from programm
+			break;
+		}
+		if (Choice == EXIT_WHILE) break;
+	}
+	getchar();
+}
+
