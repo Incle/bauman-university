@@ -6,7 +6,7 @@ using namespace std;
 #define NumberOfStudents 10
 #define NumberOfCourses 5
 /**
-  @struct		COURSE
+  	@struct		COURSE
 	@brief		Structure for queue
   	@param value	Value of element
 	@param *next	Link of next element
