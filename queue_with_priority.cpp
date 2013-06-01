@@ -7,7 +7,7 @@ using namespace std;
 
 #define Number 16
 /** 
-  @struct		queue
+  	@struct		queue
 	@brief		Structure for queue
   	@param value	Value of element
 	@param *next	Link of next element
@@ -38,18 +38,18 @@ public:
 		level=0;
 	}
 	/** 
-	@fn		int GetValue(int i)
-   	@brief		Get value of element
-	@return	int		
+		@fn		int GetValue(int i)
+   		@brief		Get value of element
+		@return	int		
 	*/
 	int GetValue(int i)
 	{
 		return element[i].value;
 	}
 	/** 
-	@fn		void add(int c,int c1)
-   	@brief		Add element to queue
-	@return			
+		@fn		void add(int c,int c1)
+   		@brief		Add element to queue
+		@return			
 	*/
 	void add(int c,int c1)
 	{
@@ -86,9 +86,9 @@ public:
 
 	}
 	/** 
-	@fn		int Checklevel(int k,int g)
-   	@brief		check layer of element
-	@return int			
+		@fn		int Checklevel(int k,int g)
+   		@brief		check layer of element
+		@return int			
 	*/
 	int Checklevel(int k,int g)
 	{
@@ -105,9 +105,9 @@ public:
 		return 0;
 	}
 	/** 
-	@fn		DeleteElem()
-   	@brief		delete element from queue
-	@return			
+		@fn		DeleteElem()
+   		@brief		delete element from queue
+		@return			
 	*/
 	void DeleteElem()
 	{
@@ -144,9 +144,9 @@ public:
 		}
 	}
 	/** 
-	@fn		PrintTree()
-   	@brief		print tree
-	@return			
+		@fn		PrintTree()
+   		@brief		print tree
+		@return			
 	*/
 	void PrintTree()
 	{
@@ -160,9 +160,9 @@ public:
 		cout<<"\n";
 	}
 	/** 
-	@fn		void queue(int n1)
-   	@brief		Add element to queue
-	@return			
+		@fn		void queue(int n1)
+   		@brief		Add element to queue
+		@return			
 	*/
 	void queue(int n1)
 	{
