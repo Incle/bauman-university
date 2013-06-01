@@ -46,7 +46,7 @@ void add (int value)
 */
 void print()
 {
-    queue *ex;
+    	queue *ex;
 	ex = first;
 	cout<<"\nQueue\n";
 	while (ex)
