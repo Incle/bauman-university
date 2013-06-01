@@ -23,7 +23,8 @@ struct queue
 	@return			
 */
 void add (int value)
-{
+{	
+	cout<<"\n Add "<<value;
 	queue *ex = new queue;
 	ex->value = value;
 	ex->next = NULL;
@@ -37,7 +38,6 @@ void add (int value)
 		first = ex;
 		last = first;
 	}
-	cout<<"\n Add "<<value;
 }
 /**
 	@fn		void print()
@@ -80,7 +80,7 @@ void main()
 	cout<<"\nCreat";
 	while (--size)
 	{
-		ex = rand()%10000;
+		ex = rand()%1000;
 		add(ex);
 	}
 	print();						/// print
