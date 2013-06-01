@@ -1,6 +1,6 @@
 /**
- 	 @file	List.cpp
- 	 @brief	Example of list
+ 	@file	List.cpp
+ 	@brief	Example of list
 */
 #include <iostream>
 #include <ctime>
